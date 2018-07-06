@@ -5,3 +5,11 @@ body {
 textarea {
 	width: 100%;
 }
+
+.contents {
+	display: contents!important;
+}
+
+.mode1, .mode2 {
+	display: none;
+}

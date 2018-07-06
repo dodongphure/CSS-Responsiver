@@ -12,8 +12,14 @@
 </head>
 
 <body>
-
-    Screen width: <input type="number" class="screenWidth"> px<hr>
+    Mode:
+    <select class="mode">
+        <option value="1">Pixel → Viewwidth converter</option>
+        <option value="2">Size scaling</option>
+    </select>
+    <div class="mode1">Screen width: <input type="number" class="screenWidth"> px</div>
+    <div class="mode2">Scale ratio: <input type="number" class="scaleRatio"></div>
+    <hr>
     <div class="row">
         <div class="col-xs-6">
             <textarea rows="30" class="input"></textarea>
