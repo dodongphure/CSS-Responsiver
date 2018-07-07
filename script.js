@@ -42,18 +42,18 @@ function runMode() {
 
 function convertPixelToViewwidth() {
 	let ratio = parseInt($('.screenWidth').val()) / 100;
-	$('.output').val($('.input').val().replace(/((0.)?\d+)px/g, function(match, pixel) {
+	$('.output').val($('.input').val().replace(/((\d+.)?\d+)px/g, function(match, pixel) {
 	    return (parseFloat(pixel) / ratio).toFixed(2) + 'vw';
 	}));
 }
 
 function scaling() {
-	$('.output').val($('.input').val().replace(/((((0.)?\d+)px)+|(((0.)?\d+)vw)+)/g, function(match, pixel) {
-	    return (parseFloat(pixel) * parseFloat($('.scaleRatio').val())).toFixed(getNumberOfDecimals(parseFloat(pixel).toString())) +
-	    	match.replace(/((0.)?\d+)/, '');
+	$('.output').val($('.input').val().replace(/((((\d+.)?\d+)px)+|(((\d+.)?\d+)vw)+)/g, function(match, pixel) {
+	    return (parseFloat(pixel) * parseFloat($('.scaleRatio').val())).toFixed(getNumberOfDecimals(parseFloat(pixel))) +
+	    	match.replace(/((\d+.)?\d+)/, '');
 	}));
 }
 
 function getNumberOfDecimals(number) {
-	return (number.split('.')[1] || []).length;
+	return (number.toString().split('.')[1] || []).length;
 }
