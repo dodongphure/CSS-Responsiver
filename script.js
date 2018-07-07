@@ -18,6 +18,8 @@ $(document).ready(function() {
 		runMode();
 	});
 
+	handleScrolling();
+
 	$('.mode1').addClass('contents');
 })
 
@@ -56,4 +58,26 @@ function scaling() {
 
 function getNumberOfDecimals(number) {
 	return (number.toString().split('.')[1] || []).length;
+}
+
+function handleScrolling() {
+	$(".input, .output").mouseenter(function(){
+		$(this).addClass('mouseenter');
+	});
+
+	$(".input, .output").mouseleave(function(){
+		$(this).removeClass('mouseenter');
+	});
+
+	$('.input').on('scroll', function() {
+		if($(this).hasClass('mouseenter')) {
+			$('.output').scrollTop(this.scrollTop);
+		}
+	});
+
+	$('.output').on('scroll', function() {
+		if($(this).hasClass('mouseenter')) {
+			$('.input').scrollTop(this.scrollTop);
+		}
+	});
 }
