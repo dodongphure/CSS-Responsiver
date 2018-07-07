@@ -42,8 +42,8 @@ function runMode() {
 
 function convertPixelToViewwidth() {
 	let ratio = parseInt($('.screenWidth').val()) / 100;
-	$('.output').val($('.input').val().replace(/(\d+)px/g, function(match, pixel) {
-	    return (parseInt(pixel) / ratio).toFixed(2) + 'vw';
+	$('.output').val($('.input').val().replace(/((0.)?\d+)px/g, function(match, pixel) {
+	    return (parseFloat(pixel) / ratio).toFixed(2) + 'vw';
 	}));
 }
 
