@@ -44,13 +44,13 @@ function runMode() {
 
 function convertPixelToViewwidth() {
 	let ratio = parseInt($('.screenWidth').val()) / 100;
-	$('.output').val($('.input').val().replace(/((\d+.)?\d+)px/g, function(match, pixel) {
+	$('.output').val($('.input').val().replace(/((\d+.)?\d+)(px|rem)/g, function(match, pixel) {
 	    return (parseFloat(pixel) / ratio).toFixed(2) + 'vw';
 	}));
 }
 
 function scaling() {
-	$('.output').val($('.input').val().replace(/((((\d+.)?\d+)px)+|(((\d+.)?\d+)vw)+)/g, function(match, pixel) {
+	$('.output').val($('.input').val().replace(/((((\d+.)?\d+)(px|rem))+|(((\d+.)?\d+)vw)+)/g, function(match, pixel) {
 	    return (parseFloat(pixel) * parseFloat($('.scaleRatio').val())).toFixed(getNumberOfDecimals(parseFloat(pixel))) +
 	    	match.replace(/((\d+.)?\d+)/, '');
 	}));
